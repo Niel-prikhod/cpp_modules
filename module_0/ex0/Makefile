@@ -1,0 +1,17 @@
+NAME = megaphone
+CC = c++
+WFLAGG = -Wextra -Wall -Werror -std=c++98
+
+SRCS = megaphone.cpp
+
+all: $(NAME)
+
+$(NAME):
+	$(CC) $(WFLAGS) $(SRCS) -o $(NAME)
+
+clean:
+
+fclean: clean
+	rm $(NAME)
+
+re: fclean all
