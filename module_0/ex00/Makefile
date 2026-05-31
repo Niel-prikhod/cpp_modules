@@ -6,7 +6,7 @@ SRCS = megaphone.cpp
 
 all: $(NAME)
 
-$(NAME):
+$(NAME): $(SRCS)
 	$(CC) $(WFLAGS) $(SRCS) -o $(NAME)
 
 clean:
