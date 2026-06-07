@@ -2,7 +2,7 @@ NAME = phone_book
 CC = c++
 WFLAGG = -Wextra -Wall -Werror -std=c++98
 
-SRCS = 
+SRCS = main.cpp PhoneBook.cpp Contact.cpp
 
 all: $(NAME)
 
