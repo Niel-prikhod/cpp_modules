@@ -1,23 +1,26 @@
+#if !defined(CONTACT_HPP)
+#define CONTACT_HPP
+
 #include <string>
 
 class Contact {
-	public:
-		std::string first_name;
-		std::string last_name;
-		std::string nickname;
-		std::string phone_number;
-		std::string secret;
-		Contact (std::string first_name, std::string last_name, 
-				std::string nickname, std::string phone_number, 
-				std::string secret);
+public: 
+	void display(void) const;
+	void displayRow(const std::size_t index) const;
+
+	Contact();
+	Contact(const std::string& first_name,
+			const std::string& last_name,
+			const std::string& nickname,
+			const std::string& phone_number,
+			const std::string& secret);
+
+private:
+	std::string first_name_;
+	std::string last_name_;
+	std::string nickname_;
+	std::string phone_number_;
+	std::string secret_;
 };
 
-Contact::Contact (std::string arg_first_name, std::string arg_last_name, 
-				std::string arg_nickname, std::string arg_phone_number, 
-				std::string arg_secret) {
-	first_name = arg_first_name;
-	last_name = arg_last_name;
-	nickname = arg_nickname;
-	phone_number = arg_phone_number;
-	secret = arg_secret;
-}
+#endif
