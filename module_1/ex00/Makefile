@@ -1,15 +1,30 @@
 NAME = zombie
+CC	 = g++
+BUILD 	= build
 
-SRCS = Zombie.cpp
+SRCS = Zombie.cpp \
+	   main.cpp \
+	   randomChump.cpp \
+	   newZombie.cpp
+
+OBJS = $(addprefix $(BUILD)/, $(SRCS:.cpp=.o))
+
 
 LFLAGS = -I.
 CFLAGS = -Wextra -Wall -Werror 
 
 all: $(NAME)
 
-%.c=%.o:
-	g++ $(CFLAGS) $(SRCS) -c $(OBJS)
+$(BUILD): 
+	mkdir -p $(BUILD)
 
-$(NAME):
-	g++ $(LFLAGS) $(OBJS) -o $(NAME)
+$(BUILD)/%.o: %.cpp | $(BUILD)
+	$(CC) $(CFLAGS) -c $< -o $@
 
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(LFLAGS) $(OBJS) -o $(NAME)
+
+clean:
+	rm -rf $(BUILD)
+
+re: clean all
