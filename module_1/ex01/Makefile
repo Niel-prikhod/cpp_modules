@@ -4,8 +4,7 @@ BUILD 	= build
 
 SRCS = Zombie.cpp \
 	   main.cpp \
-	   randomChump.cpp \
-	   newZombie.cpp
+	   zombieHorde.cpp
 
 OBJS = $(addprefix $(BUILD)/, $(SRCS:.cpp=.o))
 
